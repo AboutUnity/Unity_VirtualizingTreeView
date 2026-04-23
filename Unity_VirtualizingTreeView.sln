@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.UI", "UnityEngi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Multiplayer.Center.Tests", "Unity.Multiplayer.Center.Tests.csproj", "{3b513538-22c4-c184-c00c-5fd669cff280}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asset-store-tools-editor", "asset-store-tools-editor.csproj", "{eda95872-734e-c687-defe-45d5961179ae}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Editor", "Unity.2D.Tilemap.Editor.csproj", "{9d9ddea0-9a39-db7c-84b6-23639efb415d}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Services.Core.Environments.Editor", "Unity.Services.Core.Environments.Editor.csproj", "{88096354-fd43-e9d9-7fc0-3db9c9027eed}"
@@ -190,6 +192,8 @@ Global
 		{e2e7f9b2-5ef7-41ca-65e9-bf2aee15caae}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3b513538-22c4-c184-c00c-5fd669cff280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3b513538-22c4-c184-c00c-5fd669cff280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{eda95872-734e-c687-defe-45d5961179ae}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{eda95872-734e-c687-defe-45d5961179ae}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9d9ddea0-9a39-db7c-84b6-23639efb415d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9d9ddea0-9a39-db7c-84b6-23639efb415d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88096354-fd43-e9d9-7fc0-3db9c9027eed}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
