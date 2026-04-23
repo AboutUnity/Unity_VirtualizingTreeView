@@ -67,6 +67,7 @@ namespace Battlehub.UIControls
 
         public override void DataBindItem(object item, VirtualizingItemContainer itemContainer)
         {
+            bool clear = itemContainer.Item != item;
             base.DataBindItem(item, itemContainer);
 
             TDataBindingArgs args = new TDataBindingArgs();
@@ -74,8 +75,11 @@ namespace Battlehub.UIControls
             args.ItemPresenter = itemContainer.ItemPresenter == null ? itemContainer.gameObject : itemContainer.ItemPresenter;
             args.EditorPresenter = itemContainer.EditorPresenter == null ? itemContainer.gameObject : itemContainer.EditorPresenter;
 
-            itemContainer.Clear();
-
+            if (clear)
+            {
+                itemContainer.Clear();
+            }
+          
             if (item != null)
             {
                 RaiseItemDataBinding(args);
@@ -975,7 +979,7 @@ namespace Battlehub.UIControls
                     {
                         if(InputProvider.IsVerticalButtonDown)
                         {
-                            m_repeater = new Repeater(Time.time, 0, 0.4f, 0.05f, () =>
+                            m_repeater = new Repeater(Time.unscaledTime, 0, 0.4f, 0.05f, () =>
                             {
                                 float ver = InputProvider.VerticalAxis;
                                 if (ver < 0)
@@ -1018,7 +1022,7 @@ namespace Battlehub.UIControls
                         }
                         if(m_repeater != null)
                         {
-                            m_repeater.Repeat(Time.time);
+                            m_repeater.Repeat(Time.unscaledTime);
                         }
                     }
                     else if (!Mathf.Approximately(InputProvider.HorizontalAxis, 0))
@@ -1027,7 +1031,7 @@ namespace Battlehub.UIControls
                         {
                             if (InputProvider.IsHorizontalButtonDown)
                             {
-                                m_repeater = new Repeater(Time.time, 0, 0.4f, 0.05f, () =>
+                                m_repeater = new Repeater(Time.unscaledTime, 0, 0.4f, 0.05f, () =>
                                 {
                                     float hor = InputProvider.HorizontalAxis;
                                     if (hor > 0)
@@ -1065,7 +1069,7 @@ namespace Battlehub.UIControls
                                     }
                                 });
                             }
-                            m_repeater.Repeat(Time.time);
+                            m_repeater.Repeat(Time.unscaledTime);
                         }
                     }
                     else

@@ -10,8 +10,8 @@ NativeFormatImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 101871
-  packageName: Virtualizing Tree View
-  packageVersion: 4.3.4
+  productId: 64806
+  packageName: Runtime Editor
+  packageVersion: 4.5.6
   assetPath: Assets/Battlehub/RTEditor/Content/Runtime/UIControls/TreeView/Prefabs/TreeViewItem.prefab
-  uploadId: 857626
+  uploadId: 901246

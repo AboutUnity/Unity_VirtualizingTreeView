@@ -773,9 +773,14 @@ namespace Battlehub.UIControls
 
         public override void DataBindItem(object item, VirtualizingItemContainer itemContainer)
         {
+            bool clear = itemContainer.Item != item;
             base.DataBindItem(item, itemContainer);
-            itemContainer.Clear();
 
+            if (clear)
+            {
+                itemContainer.Clear();
+            }
+          
             if (item != null)
             {
                 VirtualizingTreeViewItemDataBindingArgs args = new VirtualizingTreeViewItemDataBindingArgs();

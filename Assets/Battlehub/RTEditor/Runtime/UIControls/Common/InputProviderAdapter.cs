@@ -1,4 +1,8 @@
 ﻿using UnityEngine;
+#if !ENABLE_LEGACY_INPUT_MANAGER
+using UnityEngine.InputSystem.EnhancedTouch;
+using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+#endif
 
 namespace Battlehub.UIControls
 {

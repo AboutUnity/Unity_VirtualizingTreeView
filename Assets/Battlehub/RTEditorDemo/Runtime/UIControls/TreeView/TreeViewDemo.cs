@@ -228,17 +228,5 @@ namespace Battlehub.UIControls
         private void OnItemEndDrag(object sender, ItemArgs e)
         {            
         }
-
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.J))
-            {
-                TreeView.SelectedItems = TreeView.Items.OfType<object>().Take(5).ToArray();
-            }
-            else if(Input.GetKeyDown(KeyCode.K))
-            {
-                TreeView.SelectedItem = null;
-            }
-        }
     }
 }

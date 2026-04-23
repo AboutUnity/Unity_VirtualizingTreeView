@@ -154,7 +154,9 @@ namespace Battlehub.UIControls
                         }
                     }
 
+    
                     m_isEditing = value && m_isSelected;
+
                     if (EditorPresenter != ItemPresenter)
                     {
                         if (EditorPresenter != null)
@@ -316,18 +318,6 @@ namespace Battlehub.UIControls
         public virtual void Clear()
         {
             m_isEditing = false;
-            //if (EditorPresenter != ItemPresenter && m_isStarted)
-            //{
-            //    if (EditorPresenter != null)
-            //    {
-            //        EditorPresenter.SetActive(m_item != null && m_isEditing);
-            //    }
-
-            //    if (ItemPresenter != null)
-            //    {
-            //        ItemPresenter.SetActive(m_item != null && !m_isEditing);
-            //    }
-            //}
 
             if(m_item == null)
             {

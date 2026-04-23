@@ -200,8 +200,6 @@ namespace Battlehub.UIControls
 
     }
 
-
-
     /// <summary>
     /// Item Arguments
     /// </summary>
@@ -351,7 +349,7 @@ namespace Battlehub.UIControls
                 return;
             }
             ItemContainer itemContainer = (ItemContainer)sender;
-            if (ItemBeginEdit != null)
+            if (ItemEndEdit != null)
             {
                 TDataBindingArgs args = new TDataBindingArgs();
                 args.Item = itemContainer.Item;
@@ -437,32 +435,31 @@ namespace Battlehub.UIControls
         /// </summary>
         public event EventHandler<ItemsRemovedArgs> ItemsRemoved;
 
-        /// <summary>
-        /// Multiselect operation key
-        /// </summary>
-        public KeyCode MultiselectKey = KeyCode.LeftControl;
-
-        /// <summary>
-        /// Rangeselect operation key
-        /// </summary>
-        public KeyCode RangeselectKey = KeyCode.LeftShift;
-
-        /// <summary>
-        /// Select All
-        /// </summary>
-        public KeyCode SelectAllKey = KeyCode.A;
-
-        /// <summary>
-        /// Remove key 
-        /// </summary>
-        public KeyCode RemoveKey = KeyCode.Delete;
-
         public bool SelectOnPointerUp = false;
         public bool CanUnselectAll = true;
         public bool CanEdit = true;
         private bool m_prevCanDrag;
         public bool CanDrag = true;
         public bool CanReorder = true;
+
+        [SerializeField]
+        private InputProvider m_inputProvider;
+        protected virtual InputProvider InputProvider
+        {
+            get
+            {
+                if (m_inputProvider == null)
+                {
+                    m_inputProvider = GetComponent<InputProvider>();
+                    if (m_inputProvider == null)
+                    {
+                        m_inputProvider = gameObject.AddComponent<InputProvider>();
+                    }
+                }
+                return m_inputProvider;
+            }
+        }
+
         protected virtual bool CanScroll
         {
             get { return CanReorder; }
@@ -1133,6 +1130,8 @@ namespace Battlehub.UIControls
                 Camera = Camera.main;
             }
 
+            var inputProvider = InputProvider;
+
             m_prevCanDrag = CanDrag;
             OnCanDragChanged();
 
@@ -1202,12 +1201,12 @@ namespace Battlehub.UIControls
                 }
             }
 
-            if (Input.GetKeyDown(RemoveKey))
+            if (InputProvider.IsDeleteButtonDown)
             {
                 RemoveSelectedItems();
             }
 
-            if (Input.GetKeyDown(SelectAllKey) && Input.GetKey(RangeselectKey))
+            if (InputProvider.IsSelectAllButtonDown && InputProvider.IsFunctional2ButtonPressed)
             {
                 SelectedItems = m_items;
             }
@@ -1384,13 +1383,13 @@ namespace Battlehub.UIControls
             }
 
             ItemContainer.Unselected -= OnItemUnselected;
-            if (Input.GetKey(MultiselectKey))
+            if (InputProvider.IsFunctionalButtonPressed)
             {
                 IList selectedItems = m_selectedItems != null ? m_selectedItems.ToList() : new List<object>();
                 selectedItems.Add(((ItemContainer)sender).Item);
                 SelectedItems = selectedItems;
             }
-            else if (Input.GetKey(RangeselectKey))
+            else if (InputProvider.IsFunctional2ButtonPressed)
             {
                 SelectRange((ItemContainer)sender);
             }
@@ -1477,11 +1476,11 @@ namespace Battlehub.UIControls
 
             if (!SelectOnPointerUp)
             {
-                if (Input.GetKey(RangeselectKey))
+                if (InputProvider.IsFunctional2ButtonPressed)
                 {
                     SelectRange(sender);
                 }
-                else if (Input.GetKey(MultiselectKey))
+                else if (InputProvider.IsFunctionalButtonPressed)
                 {
                     sender.IsSelected = !sender.IsSelected;
                 }
@@ -1521,11 +1520,11 @@ namespace Battlehub.UIControls
             {
                 if (!m_isDropInProgress)
                 {
-                    if (Input.GetKey(RangeselectKey))
+                    if (InputProvider.IsFunctional2ButtonPressed)
                     {
                         SelectRange(sender);
                     }
-                    else if (Input.GetKey(MultiselectKey))
+                    else if (InputProvider.IsFunctionalButtonPressed)
                     {
                         sender.IsSelected = !sender.IsSelected;
                     }
@@ -1537,7 +1536,7 @@ namespace Battlehub.UIControls
             }
             else
             {
-                if (!Input.GetKey(MultiselectKey) && !Input.GetKey(RangeselectKey))
+                if (!InputProvider.IsFunctionalButtonPressed && !InputProvider.IsFunctional2ButtonPressed)
                 {
                     if (m_selectedItems != null && m_selectedItems.Count > 1)
                     {
@@ -2188,8 +2187,5 @@ namespace Battlehub.UIControls
                 m_items.Remove(item);
             }
         }
-
-
     }
 }
-
