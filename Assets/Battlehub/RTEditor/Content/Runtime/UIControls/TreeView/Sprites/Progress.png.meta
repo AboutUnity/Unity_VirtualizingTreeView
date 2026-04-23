@@ -89,3 +89,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 101871
+  packageName: Virtualizing Tree View
+  packageVersion: 4.3.4
+  assetPath: Assets/Battlehub/RTEditor/Content/Runtime/UIControls/TreeView/Sprites/Progress.png
+  uploadId: 857626

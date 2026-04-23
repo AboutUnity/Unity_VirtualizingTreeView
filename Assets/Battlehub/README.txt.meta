@@ -5,3 +5,10 @@ TextScriptImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 101871
+  packageName: Virtualizing Tree View
+  packageVersion: 4.3.4
+  assetPath: Assets/Battlehub/README.txt
+  uploadId: 857626

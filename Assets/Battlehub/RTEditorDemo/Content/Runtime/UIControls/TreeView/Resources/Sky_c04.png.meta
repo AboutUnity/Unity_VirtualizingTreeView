@@ -58,3 +58,10 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 101871
+  packageName: Virtualizing Tree View
+  packageVersion: 4.3.4
+  assetPath: Assets/Battlehub/RTEditorDemo/Content/Runtime/UIControls/TreeView/Resources/Sky_c04.png
+  uploadId: 857626

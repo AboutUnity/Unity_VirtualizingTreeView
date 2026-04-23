@@ -11,3 +11,10 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 101871
+  packageName: Virtualizing Tree View
+  packageVersion: 4.3.4
+  assetPath: Assets/Battlehub/RTEditorDemo/Runtime/UIControls/TreeView/ListBoxDemo.cs
+  uploadId: 857626
